@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void print_space(int rows, int r){
+    for(int i = 0; i < rows - r; i++){
+        printf(" ");
+    }
+}
+
+void print_pascal_number(int rows, int r){
+        unsigned long long c = 1; // C(i,0) = 1
+        for (int k = 0; k <= r; k++) {
+            printf("%llu ", c);
+            // C(i, j+1) = C(i, j) * (i - j) / (j + 1)
+                c = c * (r - k) / (k + 1);
+            
+        }
+    }
+
+int main() {
+    int rows = 5;
+    for(int r = 0; r < rows; r++){
+        
+        print_space(rows, r);
+        print_pascal_number(rows, r);
+        printf("\n");
+    }
+
+    return 0;
+}
